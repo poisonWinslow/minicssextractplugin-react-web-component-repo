@@ -47,7 +47,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       ignoreOrder: false,
       insert: function (linkTag) {
-        console.log("this should ran when application is rendered");
+        console.log("this should be ran when application is rendered");
         const webComponent = document.querySelector("custom-web-component");
         webComponent.shadowRoot.prepend(linkTag);
       },
