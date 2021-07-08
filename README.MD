@@ -4,8 +4,20 @@
 
 Run the following commands in the root directory.
 
+### Set up
+
 ```bash
 npm install
-npm run build
+```
+
+### Run
+
+```bash
 npm run start
+```
+
+### Build
+
+```bash
+npm run build
 ```
