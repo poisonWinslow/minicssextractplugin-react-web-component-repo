@@ -47,8 +47,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       ignoreOrder: false,
       insert: function (linkTag) {
-        console.log("this should be ran when application is rendered");
         const webComponent = document.querySelector("custom-web-component");
+        console.log(
+          "inserting styles into web component's shadow dom via mini-css-extract-plugin's insert function"
+        );
         webComponent.shadowRoot.prepend(linkTag);
       },
       filename: "[name].[chunkhash].css",
