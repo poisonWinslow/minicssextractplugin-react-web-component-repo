@@ -1,7 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App.jsx";
-
 class CustomWebComponent extends HTMLElement {
   constructor() {
     super();
@@ -15,14 +11,13 @@ class CustomWebComponent extends HTMLElement {
     // create react mount point inside of the shadow dom
     createReactMountPoint(this.shadowRoot);
 
+    // code split App which contains css
+    const appImportPromise = import("./App.jsx");
+
     // render React app
-    const reactMountNode = this.shadowRoot.getElementById("react-root");
-    ReactDOM.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>,
-      reactMountNode
-    );
+    appImportPromise.then(({ default: App }) => {
+      App();
+    });
   }
 }
 
